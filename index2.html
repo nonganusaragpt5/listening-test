@@ -124,10 +124,8 @@ button { margin: 5px; padding: 8px 12px; font-size: 16px; cursor: pointer; }
 </div>
 
 <script>
-function playAudio(num){
-  const audio = document.getElementById("audio");
-  audio.src = "https://nonganusaragpt5.github.io/listening-test/" + num + ".mp3";
-  audio.currentTime = 0;
+function playAudio(letter) {
+  var audio = new Audio(letter + ".mp3");
   audio.play();
 }
 </script>
