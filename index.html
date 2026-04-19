@@ -1,30 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <title>Audio Test</title>
+<meta charset="UTF-8">
+<title>Listening Test</title>
+<style>
+body { font-family: sans-serif; text-align: center; }
+button { margin: 5px; padding: 8px 12px; font-size: 16px; cursor: pointer; }
+.question { margin-top: 20px; }
+</style>
 </head>
+
 <body>
 
-<audio id="audio1" src="1.mp3"></audio>
-<audio id="audio2" src="2.mp3"></audio>
-<audio id="audio3" src="3.mp3"></audio>
-<audio id="audio4" src="4.mp3"></audio>
-<audio id="audio5" src="5.mp3"></audio>
-<audio id="audio6" src="6.mp3"></audio>
-<audio id="audio7" src="7.mp3"></audio>
-<audio id="audio8" src="8.mp3"></audio>
-<audio id="audio9" src="9.mp3"></audio>
-<audio id="audio10" src="10.mp3"></audio>
+<h2>🎧 Listening Test (10 ข้อ)</h2>
 
-<button onclick="document.getElementById('audio1').play()">▶️ ข้อ 1</button>
-<button onclick="document.getElementById('audio2').play()">▶️ ข้อ 2</button>
-<button onclick="document.getElementById('audio3').play()">▶️ ข้อ 3</button>
-<button onclick="document.getElementById('audio4').play()">▶️ ข้อ 4</button>
-<button onclick="document.getElementById('audio5').play()">▶️ ข้อ 5</button>
-<button onclick="document.getElementById('audio6').play()">▶️ ข้อ 6</button>
-<button onclick="document.getElementById('audio7').play()">▶️ ข้อ 7</button>
-<button onclick="document.getElementById('audio8').play()">▶️ ข้อ 8</button>
-<button onclick="document.getElementById('audio9').play()">▶️ ข้อ 9</button>
-<button onclick="document.getElementById('audio10').play()">▶️ ข้อ 10</button>
+<!-- ปุ่มฟัง -->
+<div>
+  <button onclick="playAudio(1)">▶️ ข้อ 1</button>
+  <button onclick="playAudio(2)">▶️ ข้อ 2</button>
+  <button onclick="playAudio(3)">▶️ ข้อ 3</button>
+  <button onclick="playAudio(4)">▶️ ข้อ 4</button>
+  <button onclick="playAudio(5)">▶️ ข้อ 5</button><br>
+  <button onclick="playAudio(6)">▶️ ข้อ 6</button>
+  <button onclick="playAudio(7)">▶️ ข้อ 7</button>
+  <button onclick="playAudio(8)">▶️ ข้อ 8</button>
+  <button onclick="playAudio(9)">▶️ ข้อ 9</button>
+  <button onclick="playAudio(10)">▶️ ข้อ 10</button>
+</div>
+
+<audio id="audio"></audio>
+
+<hr>
+
+<!-- ข้อ 1 -->
+<div class="question">
+<h3>1. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. She is going to school.</button><br>
+<button>B. She is going to the market.</button><br>
+<button>C. She is going home.</button>
+</div>
+
+<!-- ข้อ 2 -->
+<div class="question">
+<h3>2. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. It is raining.</button><br>
+<button>B. It is sunny.</button><br>
+<button>C. It is windy.</button>
+</div>
+
+<!-- ข้อ 3 -->
+<div class="question">
+<h3>3. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. He is eating.</button><br>
+<button>B. He is sleeping.</button><br>
+<button>C. He is running.</button>
+</div>
+
+<!-- ข้อ 4 -->
+<div class="question">
+<h3>4. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. She is reading.</button><br>
+<button>B. She is writing.</button><br>
+<button>C. She is drawing.</button>
+</div>
+
+<!-- ข้อ 5 -->
+<div class="question">
+<h3>5. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. They are playing football.</button><br>
+<button>B. They are cooking.</button><br>
+<button>C. They are studying.</button>
+</div>
+
+<!-- ข้อ 6 -->
+<div class="question">
+<h3>6. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. The dog is barking.</button><br>
+<button>B. The dog is sleeping.</button><br>
+<button>C. The dog is running.</button>
+</div>
+
+<!-- ข้อ 7 -->
+<div class="question">
+<h3>7. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. He is drinking water.</button><br>
+<button>B. He is eating rice.</button><br>
+<button>C. He is cooking.</button>
+</div>
+
+<!-- ข้อ 8 -->
+<div class="question">
+<h3>8. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. She is walking.</button><br>
+<button>B. She is running.</button><br>
+<button>C. She is jumping.</button>
+</div>
+
+<!-- ข้อ 9 -->
+<div class="question">
+<h3>9. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. It is hot.</button><br>
+<button>B. It is cold.</button><br>
+<button>C. It is rainy.</button>
+</div>
+
+<!-- ข้อ 10 -->
+<div class="question">
+<h3>10. ฟังแล้วเลือกคำตอบ</h3>
+<button>A. He is at school.</button><br>
+<button>B. He is at home.</button><br>
+<button>C. He is at the park.</button>
+</div>
+
+<script>
+function playAudio(num){
+  const audio = document.getElementById("audio");
+  audio.src = "https://nonganusaragpt5.github.io/listening-test/" + num + ".mp3";
+  audio.currentTime = 0;
+  audio.play();
+}
+</script>
+
 </body>
 </html>
