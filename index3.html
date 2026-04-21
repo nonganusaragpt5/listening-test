@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Listen & Choose Game</title>
+<style>
+  body { font-family: Arial; text-align: center; background: #f0f8ff; }
+  .question { margin: 20px; padding: 20px; background: white; border-radius: 10px; }
+  button { margin: 5px; padding: 10px 20px; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<h1>🎧 Listen & Choose</h1>
+
+<div id="game"></div>
+
+<script>
+const questions = [
+  {
+    text: "What do I eat?",
+    audio: "q1.mp3",
+    choices: ["noodles", "rice", "bread"],
+    answer: 1
+  },
+  {
+    text: "Where is the cat?",
+    audio: " q2.mp3",
+    choices: ["on the table", "under the table", "in the box"],
+    answer: 1
+  },
+  {
+    text: "Who is she?",
+    audio: " q3.mp3",
+    choices: ["my friend", "my mother", "my teacher"],
+    answer: 2
+  },
+  {
+    text: "How do I go to school?",
+    audio: " q4.mp3",
+    choices: ["by bike", "by bus", "by car"],
+    answer: 1
+  },
+  {
+    text: "What is it?",
+    audio: " q5.mp3",
+    choices: ["a small dog", "a big dog", "a cat"],
+    answer: 1
+  },
+  {
+    text: "What is he doing?",
+    audio: " q6.mp3",
+    choices: ["playing football", "reading", "sleeping"],
+    answer: 0
+  },
+  {
+    text: "How many apples?",
+    audio: " q7.mp3",
+    choices: ["one", "two", "three"],
+    answer: 1
+  },
+  {
+    text: "What color is the sky?",
+    audio: " q8.mp3",
+    choices: ["red", "green", "blue"],
+    answer: 2
+  },
+  {
+    text: "How does she feel?",
+    audio: " q9.mp3",
+    choices: ["sad", "happy", "angry"],
+    answer: 1
+  },
+  {
+    text: "What do I drink?",
+    audio: "q10.mp3",
+    choices: ["milk", "juice", "water"],
+    answer: 2
+  }
+];
+
+const gameDiv = document.getElementById("game");
+
+questions.forEach((q, index) => {
+  const div = document.createElement("div");
+  div.className = "question";
+
+  div.innerHTML = `
+    <h3>Question ${index + 1}</h3>
+    <button onclick="playAudio('${q.audio}')">🔊 Listen</button>
+    <p>${q.text}</p>
+  `;
+
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.innerText = choice;
+    btn.onclick = () => {
+      if (i === q.answer) {
+        alert("✅ Correct!");
+      } else {
+        alert("❌ Try again!");
+      }
+    };
+    div.appendChild(btn);
+  });
+
+  gameDiv.appendChild(div);
+});
+
+function playAudio(file) {
+const audio = new Audio(file);
+audio.play();
+}
+</script>
+
+</body>
+</html>
